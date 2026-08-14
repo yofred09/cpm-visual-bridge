@@ -8,8 +8,8 @@ version="${mod_version}"
 displayName="${mod_name}"
 authors="Yo_Fred"
 description='''
-Client-side compatibility bridge that renders Customizable Player Models on player-like
-entities, illusions and projections created by other mods.
+Universal client-side bridge that keeps Customizable Player Models visible when other mods
+replace player rendering or create player-shaped animations, copies, illusions and projections.
 '''
 
 [[mixins]]

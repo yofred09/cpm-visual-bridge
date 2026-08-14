@@ -1,10 +1,12 @@
 # CPM Visual Bridge
 
-Client-side compatibility for [Customizable Player Models](https://www.curseforge.com/minecraft/mc-mods/custom-player-models) on NeoForge 1.21.1.
+Universal client-side compatibility bridge for [Customizable Player Models](https://www.curseforge.com/minecraft/mc-mods/custom-player-models) on NeoForge 1.21.1.
 
-CPM Visual Bridge makes player-like entities, illusions and projections from other mods use the owning player's CPM model while preserving the original effect renderer and falling back safely when an integration is unavailable.
+Its goal is simple: when another mod renders a player, a copy of a player, custom ability animations or another player-shaped effect, you should still see that player's CPM model in both singleplayer and multiplayer.
 
-## Initial integrations
+Minecraft mods do not share one universal player-rendering API, so compatibility is provided through small, isolated adapters. Each adapter reconnects an external renderer to CPM while preserving the original mod's pose, animation, items, colors, transparency and special effects. Unsupported or incompatible renderers fall back safely to their original appearance instead of breaking rendering.
+
+## Supported integrations
 
 - Cybernetics Sandevistan mirages and Holoprojector projections
 - Relics Glitchy Illusion entities
