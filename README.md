@@ -18,6 +18,10 @@ Mowzie's first-person ability arms remain under active development; their dedica
 
 Each integration can be disabled independently in `config/cpmvisualbridge-client.toml`. Adaptive Sandevistan density also has its own performance toggle.
 
+## Community & Support
+
+Join the [official Discord community](https://discord.gg/R5VnN7Rn5H) for support, compatibility requests, testing and development updates.
+
 ## Status
 
 Early development. No public binary release is available yet.

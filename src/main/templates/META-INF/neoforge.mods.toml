@@ -10,6 +10,7 @@ authors="Yo_Fred"
 description='''
 Universal client-side bridge that keeps Customizable Player Models visible when other mods
 replace player rendering or create player-shaped animations, copies, illusions and projections.
+Community and support: https://discord.gg/R5VnN7Rn5H
 '''
 
 [[mixins]]
