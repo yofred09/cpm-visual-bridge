@@ -16,7 +16,9 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
+import software.bernie.geckolib.animatable.GeoAnimatable;
 import software.bernie.geckolib.cache.object.BakedGeoModel;
+import software.bernie.geckolib.renderer.GeoRenderer;
 
 /** Uses Mowzie's prepared ability pose as the parent transform for CPM geometry. */
 @Mixin(GeckoRenderPlayer.class)
@@ -25,14 +27,14 @@ public abstract class GeckoRenderPlayerMixin {
             method = "actuallyRender",
             at = @At(
                     value = "INVOKE",
-                    target = "Lsoftware/bernie/geckolib/renderer/GeoRenderer;actuallyRender(Lcom/mojang/blaze3d/vertex/PoseStack;Ljava/lang/Object;Lsoftware/bernie/geckolib/cache/object/BakedGeoModel;Lnet/minecraft/client/renderer/RenderType;Lnet/minecraft/client/renderer/MultiBufferSource;Lcom/mojang/blaze3d/vertex/VertexConsumer;ZFIII)V"
+                    target = "Lsoftware/bernie/geckolib/renderer/GeoRenderer;actuallyRender(Lcom/mojang/blaze3d/vertex/PoseStack;Lsoftware/bernie/geckolib/animatable/GeoAnimatable;Lsoftware/bernie/geckolib/cache/object/BakedGeoModel;Lnet/minecraft/client/renderer/RenderType;Lnet/minecraft/client/renderer/MultiBufferSource;Lcom/mojang/blaze3d/vertex/VertexConsumer;ZFIII)V"
             ),
             require = 0
     )
     private void cpmvisualbridge$renderAnimatedCpmPlayer(
-            Object renderer,
+            GeoRenderer<GeckoPlayer> renderer,
             PoseStack poseStack,
-            Object animatableObject,
+            GeoAnimatable animatableObject,
             BakedGeoModel bakedModel,
             RenderType renderType,
             MultiBufferSource buffers,
