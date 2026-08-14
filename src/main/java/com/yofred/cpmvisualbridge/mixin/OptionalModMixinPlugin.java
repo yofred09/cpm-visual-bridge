@@ -16,6 +16,7 @@ public final class OptionalModMixinPlugin implements IMixinConfigPlugin {
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
         String modId = mixinClassName.contains(".relics.") ? "relics"
+                : mixinClassName.contains(".mowzies.") ? "mowziesmobs"
                 : mixinClassName.contains(".cybernetics.") ? "createcybernetics"
                 : null;
         if (modId == null) return false;

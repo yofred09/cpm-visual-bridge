@@ -8,8 +8,11 @@ CPM Visual Bridge makes player-like entities, illusions and projections from oth
 
 - Cybernetics Sandevistan mirages and Holoprojector projections
 - Relics Glitchy Illusion entities
+- Mowzie's Mobs third-person ability animations
 
 Target mods are optional. CPM is required. The addon is client-side only.
+
+Mowzie's first-person ability arms remain under active development; their dedicated GeckoLib hand renderer requires a separate transform bridge.
 
 ## Status
 

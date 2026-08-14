@@ -19,6 +19,7 @@ repositories {
         url = "https://cursemaven.com"
         content { includeGroup "curse.maven" }
     }
+    maven { url = "https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/" }
     flatDir { dirs 'libs' }
 }
 
@@ -58,6 +59,8 @@ dependencies {
     // Every target integration remains optional and is never packaged.
     compileOnly "maven.modrinth:createcybernetics:${cybernetics_version}"
     compileOnly "curse.maven:relics-mod-${relics_curse_project}:${relics_curse_file}"
+    compileOnly "curse.maven:mowzies-mobs-${mowzies_curse_project}:${mowzies_curse_file}"
+    compileOnly "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
     compileOnly "maven.modrinth:pehkui:${pehkui_version}"
     localRuntime "maven.modrinth:pehkui:${pehkui_version}"
 }

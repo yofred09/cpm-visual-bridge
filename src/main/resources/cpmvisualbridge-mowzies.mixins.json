@@ -1,0 +1,9 @@
+{
+  "required": false,
+  "minVersion": "0.8",
+  "package": "com.yofred.cpmvisualbridge.mixin.mowzies",
+  "plugin": "com.yofred.cpmvisualbridge.mixin.OptionalModMixinPlugin",
+  "compatibilityLevel": "JAVA_21",
+  "client": ["GeckoRenderPlayerMixin"],
+  "injectors": { "defaultRequire": 1 }
+}
