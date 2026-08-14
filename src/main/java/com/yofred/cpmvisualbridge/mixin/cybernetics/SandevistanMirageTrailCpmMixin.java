@@ -1,5 +1,6 @@
 package com.yofred.cpmvisualbridge.mixin.cybernetics;
 
+import com.yofred.cpmvisualbridge.BridgeClientConfig;
 import com.yofred.cpmvisualbridge.compat.CpmCompat;
 import com.yofred.cpmvisualbridge.compat.CpmSoftBridge;
 import com.yofred.cpmvisualbridge.compat.PehkuiScaleBridge;
@@ -60,11 +61,14 @@ public abstract class SandevistanMirageTrailCpmMixin {
     ) {
         int index = cyberneticsvanity$mirageIndex.get();
         cyberneticsvanity$mirageIndex.set(index + 1);
-        boolean cpmEnabled = CpmCompat.isLoaded() && CpmCompat.isApiAvailable();
+        boolean cpmEnabled = BridgeClientConfig.CYBERNETICS.get()
+                && CpmCompat.isLoaded() && CpmCompat.isApiAvailable();
         // A short trail keeps every CPM copy. Longer trails progressively use
         // fewer full custom-model renders; at the maximum normal lifetime this
         // caps the expensive CPM work at roughly 27 copies per player/frame.
-        int stride = snapshots.size() > 48 ? 3 : snapshots.size() > 24 ? 2 : 1;
+        int stride = BridgeClientConfig.ADAPTIVE_SANDEVISTAN.get()
+                ? snapshots.size() > 48 ? 3 : snapshots.size() > 24 ? 2 : 1
+                : 1;
         if (cpmEnabled && index % stride != 0) return;
         cyberneticsvanity$renderScaled(model, renderPose, consumer, packedLight, packedOverlay, color,
                 buffers, player, partialTick, cpmEnabled);
@@ -88,7 +92,8 @@ public abstract class SandevistanMirageTrailCpmMixin {
         // CPM already draws its own textured cubes in the base pass. Repeating
         // them for Cybernetics' vanilla skin overlay causes the flashing seen
         // on custom models.
-        if (CpmCompat.isLoaded() && CpmCompat.isApiAvailable()) return;
+        if (BridgeClientConfig.CYBERNETICS.get()
+                && CpmCompat.isLoaded() && CpmCompat.isApiAvailable()) return;
         cyberneticsvanity$renderScaled(model, renderPose, consumer, packedLight, packedOverlay, color,
                 buffers, player, partialTick, false);
     }

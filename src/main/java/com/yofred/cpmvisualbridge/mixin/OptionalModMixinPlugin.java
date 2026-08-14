@@ -22,7 +22,9 @@ public final class OptionalModMixinPlugin implements IMixinConfigPlugin {
         if (modId == null) return false;
         try {
             var list = LoadingModList.get();
-            return list != null && list.getModFileById(modId) != null;
+            if (list == null || list.getModFileById(modId) == null) return false;
+            return !mixinClassName.endsWith("HoloprojectorPehkuiMixin")
+                    || list.getModFileById("pehkui") != null;
         } catch (Throwable ignored) {
             return false;
         }

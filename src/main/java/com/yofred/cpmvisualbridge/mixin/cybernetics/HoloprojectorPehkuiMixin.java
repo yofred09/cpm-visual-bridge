@@ -1,5 +1,6 @@
 package com.yofred.cpmvisualbridge.mixin.cybernetics;
 
+import com.yofred.cpmvisualbridge.BridgeClientConfig;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.perigrine3.createcybernetics.block.entity.HoloprojectorBlockEntityRenderer;
 import net.minecraft.client.Minecraft;
@@ -27,6 +28,10 @@ public abstract class HoloprojectorPehkuiMixin {
             double x, double y, double z, float yaw, float partialTick,
             PoseStack poseStack, MultiBufferSource buffers, int packedLight
     ) {
+        if (!BridgeClientConfig.CYBERNETICS.get()) {
+            dispatcher.render(hologram, x, y, z, yaw, partialTick, poseStack, buffers, packedLight);
+            return;
+        }
         Player source = Minecraft.getInstance().level == null
                 ? null
                 : Minecraft.getInstance().level.getPlayerByUUID(hologram.getUUID());

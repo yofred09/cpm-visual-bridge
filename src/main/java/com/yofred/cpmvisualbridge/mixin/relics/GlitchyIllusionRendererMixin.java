@@ -1,5 +1,6 @@
 package com.yofred.cpmvisualbridge.mixin.relics;
 
+import com.yofred.cpmvisualbridge.BridgeClientConfig;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.yofred.cpmvisualbridge.compat.CpmCompat;
@@ -82,7 +83,8 @@ public abstract class GlitchyIllusionRendererMixin {
             float partialTicks,
             MultiBufferSource buffers
     ) {
-        if (!(illusion.getOwner() instanceof AbstractClientPlayer player)) {
+        if (!BridgeClientConfig.RELICS.get()
+                || !(illusion.getOwner() instanceof AbstractClientPlayer player)) {
             model.renderToBuffer(poseStack, consumer, packedLight, packedOverlay, color);
             return;
         }

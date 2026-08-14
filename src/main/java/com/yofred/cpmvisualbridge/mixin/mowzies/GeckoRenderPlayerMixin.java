@@ -1,5 +1,6 @@
 package com.yofred.cpmvisualbridge.mixin.mowzies;
 
+import com.yofred.cpmvisualbridge.BridgeClientConfig;
 import com.bobmowzie.mowziesmobs.client.model.entity.ModelPlayerAnimated;
 import com.bobmowzie.mowziesmobs.client.render.entity.player.GeckoPlayer;
 import com.bobmowzie.mowziesmobs.client.render.entity.player.GeckoRenderPlayer;
@@ -43,7 +44,8 @@ public abstract class GeckoRenderPlayerMixin {
             int color,
             Operation<Void> original
     ) {
-        if (!(animatableObject instanceof GeckoPlayer animatable)
+        if (!BridgeClientConfig.MOWZIES_MOBS.get()
+                || !(animatableObject instanceof GeckoPlayer animatable)
                 || !(animatable.getPlayer() instanceof AbstractClientPlayer player)
                 || !Boolean.TRUE.equals(CpmCompat.hasCustomModel(player))) {
             original.call(renderer, poseStack, animatableObject, bakedModel, renderType, buffers,
