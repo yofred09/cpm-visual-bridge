@@ -1,0 +1,1 @@
+Displays CPM player models correctly in projections, illusions, abilities, and player renderers added by other mods.
